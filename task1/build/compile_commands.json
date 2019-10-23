@@ -1,0 +1,7 @@
+[
+  {
+    "directory": "/home/alexander/system_prog/task1/build",
+    "command": "c++ -Itests/59830eb@@shuffle_test@exe -Itests -I../tests -fdiagnostics-color=always -fsanitize=address -fno-omit-frame-pointer -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -MD -MQ 'tests/59830eb@@shuffle_test@exe/shuffle_test.cpp.o' -MF 'tests/59830eb@@shuffle_test@exe/shuffle_test.cpp.o.d' -o 'tests/59830eb@@shuffle_test@exe/shuffle_test.cpp.o' -c ../tests/shuffle_test.cpp",
+    "file": "../tests/shuffle_test.cpp"
+  }
+]
