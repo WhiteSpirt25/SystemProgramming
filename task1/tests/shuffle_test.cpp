@@ -76,9 +76,12 @@ public:
 	}
 
 	// copy assignement 
-	MyVector& operator=(MyVector& vec){	
+	MyVector& operator=(const MyVector& vec){ //TODO: copy construct and swap me DONE	
+		
+		MyVector<T> temp = vec; 
+		swap(temp);
 
-		// when vec const breaks - FIX
+		/* old code
 
 		//allocated memory
 		T* arr = new T[vec.capacity()];
@@ -96,22 +99,13 @@ public:
 		end_of_storage = first + vec.capacity() - 1;//-1 is for pointing on the last cell & not past it (due to existing of pointer "first")
 		last = first + vec.size() - 1;
 
-
+		*/
 		return *this;
 	}
 	//move assignement 
-	MyVector& operator=(MyVector&& vec) {
+	MyVector& operator=(MyVector&& vec) { //TODO: swap me DONE
 
-		delete[] first;
-
-		first = vec.first;
-		last = vec.last;
-		end_of_storage = vec.end_of_storage;
-
-		vec.first = nullptr;
-		vec.last = nullptr;
-		vec.end_of_storage = nullptr;
-
+		swap(vec);
 
 		return *this;
 	}
@@ -177,23 +171,25 @@ public:
 		T* elem = first + idx;
 
 		while (elem != last) {
-			*elem = *(elem + 1);
+			elem = std::move(elem + 1);//TODO: fix me DONE
 			++elem;
 		}
 		// and updating pointer to the last element 
 		--last;
 	}
 	void pop_back() {
-		--last;
+		auto temp = last;
+		--last; // TODO:destruct me	DONE
+		temp->~T();
 	}
 
 	T* begin() {
 		return first;
 	}
 	T* end() {
-		if (last == end_of_storage)
-			increase_size();
-		return last + 1;
+		if (last == nullptr)
+			return nullptr;
+		return last + 1;// TODO:nullptr me DONE
 	}
 
 	void swap(MyVector& vec) {
@@ -222,7 +218,7 @@ void swap (MyVector<T>& a,MyVector<T>& b){
 
 int main() {
 	
-	/*
+	
 	MyVector<std::ofstream> v;
 
 	const int num = 10;
@@ -238,7 +234,9 @@ int main() {
 	for (int i = 0; i < v.size(); i++) {
 		v[i] << i;
 	}
-	*/
+	/*
+	
+	// код для проверки функций вне теста с потоками и вывода в консоль
 	MyVector<int> v;
 	for (int i = 0; i < 10; i++){
 		v.push_back(i);
@@ -248,6 +246,7 @@ int main() {
 	for (int i = 0; i < w.size(); i++){
 		std::cout<<w[i]<<'\n';
 	}
+	*/
 
 	return 0;
 }

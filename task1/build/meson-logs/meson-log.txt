@@ -1,4 +1,4 @@
-Build started at 2019-10-22T13:14:19.435155
+Build started at 2019-10-25T12:32:43.910072
 Main binary: /usr/bin/python3
 Build Options: -Dbackend=ninja -Db_sanitize=address
 Python system: Linux
@@ -22,8 +22,8 @@ Target machine cpu: x86_64
 Build targets in project: 1
 Found ninja-1.8.2 at /usr/bin/ninja
 Running compile:
-Working directory:  /tmp/tmp65vuzgk3
-Command line:  c++ /tmp/tmp65vuzgk3/testfile.cpp -o /tmp/tmp65vuzgk3/output.obj -pipe -D_FILE_OFFSET_BITS=64 -c -std=c++11 
+Working directory:  /tmp/tmpynkgwq_2
+Command line:  c++ /tmp/tmpynkgwq_2/testfile.cpp -o /tmp/tmpynkgwq_2/output.obj -pipe -D_FILE_OFFSET_BITS=64 -c -std=c++11 
 
 Code:
  int i = static_cast<int>(0);
@@ -33,8 +33,8 @@ Compiler stderr:
  
 Compiler accepts -std=c++11: YES
 Running compile:
-Working directory:  /home/alexander/system_prog/task1/build/meson-private/tmp6n304fhx
-Command line:  c++ /home/alexander/system_prog/task1/build/meson-private/tmp6n304fhx/testfile.cpp -o /home/alexander/system_prog/task1/build/meson-private/tmp6n304fhx/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -fpermissive --print-search-dirs 
+Working directory:  /home/alexander/system_prog/task1/build/meson-private/tmpvvgkkok3
+Command line:  c++ /home/alexander/system_prog/task1/build/meson-private/tmpvvgkkok3/testfile.cpp -o /home/alexander/system_prog/task1/build/meson-private/tmpvvgkkok3/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -fpermissive --print-search-dirs 
 
 Code:
  
