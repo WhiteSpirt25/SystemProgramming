@@ -1,0 +1,18 @@
+# ninja log v5
+0	685	1573756477	build.ninja	9e42ea83bbaa7d99
+13	3271	1573756480	src/tests/a4ccf2d@@tests@exe/gtest_main.cc.o	7c0508703b1fc7a7
+12	8345	1573756485	src/tests/a4ccf2d@@tests@exe/gtest-all.cc.o	9539bedb1368df3c
+2	5573	1573757948	src/tests/a4ccf2d@@tests@exe/task_test.cpp.o	b2faa0e66300112d
+5574	7405	1573757950	src/tests/tests	455209f0a9606785
+101	6271	0	meson-test	5a22b44b719d3de9
+0	1869	0	meson-coverage-text	d88d4b4e0fab1218
+2	3646	1573758515	src/tests/a4ccf2d@@tests@exe/task_test.cpp.o	b2faa0e66300112d
+3646	4234	1573758516	src/tests/tests	455209f0a9606785
+1	1927	1573758601	src/tests/a4ccf2d@@tests@exe/task_test.cpp.o	b2faa0e66300112d
+1927	2232	1573758602	src/tests/tests	455209f0a9606785
+2232	2648	0	meson-test	5a22b44b719d3de9
+1	1280	0	meson-coverage-text	d88d4b4e0fab1218
+0	739	1573806033	build.ninja	9e42ea83bbaa7d99
+2	552	0	meson-test	5a22b44b719d3de9
+0	2288	0	meson-coverage-text	d88d4b4e0fab1218
+0	9911	0	meson-coverage-html	bc546fbc291ac020

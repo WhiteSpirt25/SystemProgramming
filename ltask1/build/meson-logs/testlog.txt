@@ -1,0 +1,108 @@
+Log of Meson test suite run on 2019-12-03T11:45:02.551119
+
+Inherited environment: LESSOPEN='| /usr/bin/lesspipe %s' USER='alexander' LANGUAGE='en_GB:en' LC_TIME='ru_RU.UTF-8' TEXTDOMAIN='im-config' XDG_SEAT='seat0' SSH_AGENT_PID='2203' XDG_SESSION_TYPE='x11' SHLVL='1' QT4_IM_MODULE='xim' HOME='/home/alexander' OLDPWD='/home/alexander/uni/system_prog/ltask1' DESKTOP_SESSION='ubuntu' GNOME_SHELL_SESSION_MODE='ubuntu' GTK_MODULES='gail:atk-bridge' LC_MONETARY='ru_RU.UTF-8' DBUS_SESSION_BUS_ADDRESS='unix:path=/run/user/1000/bus' COLORTERM='truecolor' IM_CONFIG_PHASE='2' LOGNAME='alexander' GTK_IM_MODULE='ibus' DESKTOP_AUTOSTART_ID='107a8ab4dec0f938db157536202681722000000021240007' _='/usr/bin/ninja' USERNAME='alexander' XDG_SESSION_ID='1' TERM='xterm-256color' GNOME_DESKTOP_SESSION_ID='this-is-deprecated' WINDOWPATH='1' PATH='/home/alexander/anaconda3/bin:/home/alexander/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin' PAPERSIZE='a4' SESSION_MANAGER='local/alexander-VPCEB3Z1R:@/tmp/.ICE-unix/2124,unix/alexander-VPCEB3Z1R:/tmp/.ICE-unix/2124' XDG_MENU_PREFIX='gnome-' GNOME_TERMINAL_SCREEN='/org/gnome/Terminal/screen/a37b52ab_56db_43a8_bee3_50d2554e608a' LC_ADDRESS='ru_RU.UTF-8' XDG_RUNTIME_DIR='/run/user/1000' DISPLAY=':0' LANG='en_GB.UTF-8' XDG_CURRENT_DESKTOP='ubuntu:GNOME' LC_TELEPHONE='ru_RU.UTF-8' LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:' XDG_SESSION_DESKTOP='ubuntu' XMODIFIERS='@im=ibus' GNOME_TERMINAL_SERVICE=':1.76' XAUTHORITY='/run/user/1000/gdm/Xauthority' SSH_AUTH_SOCK='/run/user/1000/keyring/ssh' LC_NAME='ru_RU.UTF-8' SHELL='/bin/bash' QT_ACCESSIBILITY='1' GDMSESSION='ubuntu' LESSCLOSE='/usr/bin/lesspipe %s %s' LC_MEASUREMENT='ru_RU.UTF-8' TEXTDOMAINDIR='/usr/share/locale/' GPG_AGENT_INFO='/run/user/1000/gnupg/S.gpg-agent:0:1' LC_IDENTIFICATION='ru_RU.UTF-8' XDG_VTNR='1' QT_IM_MODULE='xim' PWD='/home/alexander/uni/system_prog/ltask1/build' CLUTTER_IM_MODULE='xim' XDG_DATA_DIRS='/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop' XDG_CONFIG_DIRS='/etc/xdg/xdg-ubuntu:/etc/xdg' LC_NUMERIC='ru_RU.UTF-8' LC_PAPER='ru_RU.UTF-8' VTE_VERSION='5202' 
+
+1/4 task1                                   OK       0.11 s 
+
+--- command ---
+/home/alexander/uni/system_prog/ltask1/build/src/test/task1/tests
+--- stdout ---
+Running main() from gtest_main.cc
+[==========] Running 0 tests from 0 test cases.
+[==========] 0 tests from 0 test cases ran. (0 ms total)
+[  PASSED  ] 0 tests.
+-------
+
+2/4 task2                                   OK       0.14 s 
+
+--- command ---
+/home/alexander/uni/system_prog/ltask1/build/src/test/task2/tests
+--- stdout ---
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 3 test cases.
+[----------] Global test environment set-up.
+[----------] 2 tests from Message
+[ RUN      ] Message.Overfill
+[       OK ] Message.Overfill (0 ms)
+[ RUN      ] Message.less
+[       OK ] Message.less (0 ms)
+[----------] 2 tests from Message (0 ms total)
+
+[----------] 1 test from Cat
+[ RUN      ] Cat.JustSomeTest
+[       OK ] Cat.JustSomeTest (0 ms)
+[----------] 1 test from Cat (0 ms total)
+
+[----------] 1 test from TieTest
+[ RUN      ] TieTest._
+[       OK ] TieTest._ (0 ms)
+[----------] 1 test from TieTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 4 tests from 3 test cases ran. (0 ms total)
+[  PASSED  ] 4 tests.
+-------
+
+3/4 task3                                   OK       0.15 s 
+
+--- command ---
+/home/alexander/uni/system_prog/ltask1/build/src/test/task3/tests
+--- stdout ---
+Running main() from gtest_main.cc
+[==========] Running 5 tests from 3 test cases.
+[----------] Global test environment set-up.
+[----------] 1 test from Guard
+[ RUN      ] Guard._
+[       OK ] Guard._ (0 ms)
+[----------] 1 test from Guard (0 ms total)
+
+[----------] 2 tests from _/where_test
+[ RUN      ] _/where_test._/0
+[       OK ] _/where_test._/0 (0 ms)
+[ RUN      ] _/where_test._/1
+[       OK ] _/where_test._/1 (0 ms)
+[----------] 2 tests from _/where_test (0 ms total)
+
+[----------] 2 tests from _/sym_test
+[ RUN      ] _/sym_test._/0
+[       OK ] _/sym_test._/0 (0 ms)
+[ RUN      ] _/sym_test._/1
+[       OK ] _/sym_test._/1 (0 ms)
+[----------] 2 tests from _/sym_test (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 5 tests from 3 test cases ran. (0 ms total)
+[  PASSED  ] 5 tests.
+-------
+
+4/4 ltask2                                  OK       0.11 s 
+
+--- command ---
+/home/alexander/uni/system_prog/ltask1/build/src/test/ltask2/tests
+--- stdout ---
+Running main() from gtest_main.cc
+[==========] Running 4 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 4 tests from _/rot_test
+[ RUN      ] _/rot_test._/0
+[       OK ] _/rot_test._/0 (0 ms)
+[ RUN      ] _/rot_test._/1
+[       OK ] _/rot_test._/1 (0 ms)
+[ RUN      ] _/rot_test._/2
+[       OK ] _/rot_test._/2 (0 ms)
+[ RUN      ] _/rot_test._/3
+[       OK ] _/rot_test._/3 (0 ms)
+[----------] 4 tests from _/rot_test (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 4 tests from 1 test case ran. (1 ms total)
+[  PASSED  ] 4 tests.
+-------
+
+
+Ok:                    4
+Expected Fail:         0
+Fail:                  0
+Unexpected Pass:       0
+Skipped:               0
+Timeout:               0

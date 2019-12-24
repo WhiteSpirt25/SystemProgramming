@@ -1,0 +1,62 @@
+[
+  {
+    "directory": "/home/alexander/uni/system_prog/ltask1/build",
+    "command": "c++ -Isrc/test/task1/391585d@@tests@exe -Isrc/test/task1 -I../src/test/task1 -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread -MD -MQ 'src/test/task1/391585d@@tests@exe/shuffle_test.cpp.o' -MF 'src/test/task1/391585d@@tests@exe/shuffle_test.cpp.o.d' -o 'src/test/task1/391585d@@tests@exe/shuffle_test.cpp.o' -c ../src/test/task1/shuffle_test.cpp",
+    "file": "../src/test/task1/shuffle_test.cpp"
+  },
+  {
+    "directory": "/home/alexander/uni/system_prog/ltask1/build",
+    "command": "c++ -Isrc/test/task1/391585d@@tests@exe -Isrc/test/task1 -I../src/test/task1 -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread -MD -MQ 'src/test/task1/391585d@@tests@exe/gtest-all.cc.o' -MF 'src/test/task1/391585d@@tests@exe/gtest-all.cc.o.d' -o 'src/test/task1/391585d@@tests@exe/gtest-all.cc.o' -c /usr/src/gtest/src/gtest-all.cc",
+    "file": "/usr/src/gtest/src/gtest-all.cc"
+  },
+  {
+    "directory": "/home/alexander/uni/system_prog/ltask1/build",
+    "command": "c++ -Isrc/test/task1/391585d@@tests@exe -Isrc/test/task1 -I../src/test/task1 -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread -MD -MQ 'src/test/task1/391585d@@tests@exe/gtest_main.cc.o' -MF 'src/test/task1/391585d@@tests@exe/gtest_main.cc.o.d' -o 'src/test/task1/391585d@@tests@exe/gtest_main.cc.o' -c /usr/src/gtest/src/gtest_main.cc",
+    "file": "/usr/src/gtest/src/gtest_main.cc"
+  },
+  {
+    "directory": "/home/alexander/uni/system_prog/ltask1/build",
+    "command": "c++ -Isrc/test/task2/7bdc6c4@@tests@exe -Isrc/test/task2 -I../src/test/task2 -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread -MD -MQ 'src/test/task2/7bdc6c4@@tests@exe/message_test.cpp.o' -MF 'src/test/task2/7bdc6c4@@tests@exe/message_test.cpp.o.d' -o 'src/test/task2/7bdc6c4@@tests@exe/message_test.cpp.o' -c ../src/test/task2/message_test.cpp",
+    "file": "../src/test/task2/message_test.cpp"
+  },
+  {
+    "directory": "/home/alexander/uni/system_prog/ltask1/build",
+    "command": "c++ -Isrc/test/task2/7bdc6c4@@tests@exe -Isrc/test/task2 -I../src/test/task2 -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread -MD -MQ 'src/test/task2/7bdc6c4@@tests@exe/gtest-all.cc.o' -MF 'src/test/task2/7bdc6c4@@tests@exe/gtest-all.cc.o.d' -o 'src/test/task2/7bdc6c4@@tests@exe/gtest-all.cc.o' -c /usr/src/gtest/src/gtest-all.cc",
+    "file": "/usr/src/gtest/src/gtest-all.cc"
+  },
+  {
+    "directory": "/home/alexander/uni/system_prog/ltask1/build",
+    "command": "c++ -Isrc/test/task2/7bdc6c4@@tests@exe -Isrc/test/task2 -I../src/test/task2 -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread -MD -MQ 'src/test/task2/7bdc6c4@@tests@exe/gtest_main.cc.o' -MF 'src/test/task2/7bdc6c4@@tests@exe/gtest_main.cc.o.d' -o 'src/test/task2/7bdc6c4@@tests@exe/gtest_main.cc.o' -c /usr/src/gtest/src/gtest_main.cc",
+    "file": "/usr/src/gtest/src/gtest_main.cc"
+  },
+  {
+    "directory": "/home/alexander/uni/system_prog/ltask1/build",
+    "command": "c++ -Isrc/test/task3/2b2b005@@tests@exe -Isrc/test/task3 -I../src/test/task3 -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread -MD -MQ 'src/test/task3/2b2b005@@tests@exe/task_test.cpp.o' -MF 'src/test/task3/2b2b005@@tests@exe/task_test.cpp.o.d' -o 'src/test/task3/2b2b005@@tests@exe/task_test.cpp.o' -c ../src/test/task3/task_test.cpp",
+    "file": "../src/test/task3/task_test.cpp"
+  },
+  {
+    "directory": "/home/alexander/uni/system_prog/ltask1/build",
+    "command": "c++ -Isrc/test/task3/2b2b005@@tests@exe -Isrc/test/task3 -I../src/test/task3 -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread -MD -MQ 'src/test/task3/2b2b005@@tests@exe/gtest-all.cc.o' -MF 'src/test/task3/2b2b005@@tests@exe/gtest-all.cc.o.d' -o 'src/test/task3/2b2b005@@tests@exe/gtest-all.cc.o' -c /usr/src/gtest/src/gtest-all.cc",
+    "file": "/usr/src/gtest/src/gtest-all.cc"
+  },
+  {
+    "directory": "/home/alexander/uni/system_prog/ltask1/build",
+    "command": "c++ -Isrc/test/task3/2b2b005@@tests@exe -Isrc/test/task3 -I../src/test/task3 -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread -MD -MQ 'src/test/task3/2b2b005@@tests@exe/gtest_main.cc.o' -MF 'src/test/task3/2b2b005@@tests@exe/gtest_main.cc.o.d' -o 'src/test/task3/2b2b005@@tests@exe/gtest_main.cc.o' -c /usr/src/gtest/src/gtest_main.cc",
+    "file": "/usr/src/gtest/src/gtest_main.cc"
+  },
+  {
+    "directory": "/home/alexander/uni/system_prog/ltask1/build",
+    "command": "c++ -Isrc/test/ltask2/906ecd0@@tests@exe -Isrc/test/ltask2 -I../src/test/ltask2 -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread -MD -MQ 'src/test/ltask2/906ecd0@@tests@exe/task_test.cpp.o' -MF 'src/test/ltask2/906ecd0@@tests@exe/task_test.cpp.o.d' -o 'src/test/ltask2/906ecd0@@tests@exe/task_test.cpp.o' -c ../src/test/ltask2/task_test.cpp",
+    "file": "../src/test/ltask2/task_test.cpp"
+  },
+  {
+    "directory": "/home/alexander/uni/system_prog/ltask1/build",
+    "command": "c++ -Isrc/test/ltask2/906ecd0@@tests@exe -Isrc/test/ltask2 -I../src/test/ltask2 -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread -MD -MQ 'src/test/ltask2/906ecd0@@tests@exe/gtest-all.cc.o' -MF 'src/test/ltask2/906ecd0@@tests@exe/gtest-all.cc.o.d' -o 'src/test/ltask2/906ecd0@@tests@exe/gtest-all.cc.o' -c /usr/src/gtest/src/gtest-all.cc",
+    "file": "/usr/src/gtest/src/gtest-all.cc"
+  },
+  {
+    "directory": "/home/alexander/uni/system_prog/ltask1/build",
+    "command": "c++ -Isrc/test/ltask2/906ecd0@@tests@exe -Isrc/test/ltask2 -I../src/test/ltask2 -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread -MD -MQ 'src/test/ltask2/906ecd0@@tests@exe/gtest_main.cc.o' -MF 'src/test/ltask2/906ecd0@@tests@exe/gtest_main.cc.o.d' -o 'src/test/ltask2/906ecd0@@tests@exe/gtest_main.cc.o' -c /usr/src/gtest/src/gtest_main.cc",
+    "file": "/usr/src/gtest/src/gtest_main.cc"
+  }
+]

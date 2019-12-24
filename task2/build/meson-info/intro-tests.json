@@ -1,0 +1,1 @@
+[{"cmd": ["/home/alexander/system_prog/task2/build/src/tests/tests"], "env": {}, "name": "task2", "workdir": null, "timeout": 30, "suite": ["myproject"], "is_parallel": true, "priority": 0}]

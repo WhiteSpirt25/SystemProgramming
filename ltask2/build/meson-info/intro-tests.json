@@ -1,0 +1,1 @@
+[{"cmd": ["/home/alexander/system_prog/ltask2/build/src/tests/tests"], "env": {}, "name": "ltask2", "workdir": null, "timeout": 30, "suite": ["myproject"], "is_parallel": true, "priority": 0}]

@@ -1,0 +1,17 @@
+[
+  {
+    "directory": "/home/alexander/system_prog/task2/build",
+    "command": "c++ -Isrc/tests/a4ccf2d@@tests@exe -Isrc/tests -I../src/tests -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread -MD -MQ 'src/tests/a4ccf2d@@tests@exe/message_test.cpp.o' -MF 'src/tests/a4ccf2d@@tests@exe/message_test.cpp.o.d' -o 'src/tests/a4ccf2d@@tests@exe/message_test.cpp.o' -c ../src/tests/message_test.cpp",
+    "file": "../src/tests/message_test.cpp"
+  },
+  {
+    "directory": "/home/alexander/system_prog/task2/build",
+    "command": "c++ -Isrc/tests/a4ccf2d@@tests@exe -Isrc/tests -I../src/tests -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread -MD -MQ 'src/tests/a4ccf2d@@tests@exe/gtest-all.cc.o' -MF 'src/tests/a4ccf2d@@tests@exe/gtest-all.cc.o.d' -o 'src/tests/a4ccf2d@@tests@exe/gtest-all.cc.o' -c /usr/src/gtest/src/gtest-all.cc",
+    "file": "/usr/src/gtest/src/gtest-all.cc"
+  },
+  {
+    "directory": "/home/alexander/system_prog/task2/build",
+    "command": "c++ -Isrc/tests/a4ccf2d@@tests@exe -Isrc/tests -I../src/tests -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread -MD -MQ 'src/tests/a4ccf2d@@tests@exe/gtest_main.cc.o' -MF 'src/tests/a4ccf2d@@tests@exe/gtest_main.cc.o.d' -o 'src/tests/a4ccf2d@@tests@exe/gtest_main.cc.o' -c /usr/src/gtest/src/gtest_main.cc",
+    "file": "/usr/src/gtest/src/gtest_main.cc"
+  }
+]
