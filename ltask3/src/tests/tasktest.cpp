@@ -2,7 +2,7 @@
 
 #include <algorithm>
 
-#include <../myproject/mythread.h>
+#include </home/alexander/uni/system_prog/ltask3/src/myproject/mythread.h>
 #include <thread>
 #include <vector>
 #include <mutex>
@@ -87,13 +87,16 @@ auto my_merge_sort(std::vector<int> v){
     for (size_t i = 0; i < cores -1; i++)
     {
        threads.emplace_back(
-           [&m,&ans,&v,part_size,i](void*){
+           [&m,&ans,&v,part_size,i](){
             thread_merge(std::ref(m), std::ref(ans), slice(v,part_size * i,part_size * (i+1)));
             return 0;
            });
     }
     // the last one takes everething that left after splitting
-    threads.emplace_back(thread_merge,std::ref(m), std::ref(ans), slice(v,part_size * (cores-1), v.size()));
+    threads.emplace_back([&m,&ans,&v,part_size,cores](){
+        thread_merge,std::ref(m), std::ref(ans), slice(v,part_size * (cores-1), v.size());
+        return 0;
+        });
     
     for (size_t i = 0; i < threads.size(); i++)
     {

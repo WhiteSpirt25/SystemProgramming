@@ -20,14 +20,19 @@
         throw std::system_error(errno, std::generic_category()); \
     }
 
-void some_func(){
-    for (size_t i = 0; i < 10; i++)
+void some_func(int a){
+    for (size_t i = 0; i < a; i++)
     {
         std::cout<<i<<"\n";
     }
     
 }
-
+template <class Func>
+int child_main(void* arg){
+    Func* func = reinterpret_cast<Func*>(arg);;
+    (*func)();
+    return 0;
+}
 class mythread{
     pid_t _pid = 0;
 
@@ -45,11 +50,15 @@ public:
 
 
         CHECK(
-        _pid = clone(f, child_stack.get() + stack_size,
-        CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND | CLONE_SYSVSEM | SIGCLD ,0)
+        _pid = clone(child_main<Function>, child_stack.get() + stack_size,
+        CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND | CLONE_SYSVSEM | SIGCLD ,&f)
         );
     } 
-    
+    mythread(mythread&& other){
+        swap(other);
+    }
+    mythread(const mythread&) = delete;
+
     ~mythread(){
         kill(_pid,SIGTERM);
     }
@@ -78,15 +87,16 @@ public:
 
 
 };
-
+/*
 
 int main(){
 
     int a = 5;
 
-    mythread thr([a](void* arg){some_func();return 0;});
+    mythread thr(some_func);
     thr.join();
 
     std::cout<<"\n____________________\n";
     return 0;
 }
+*/
