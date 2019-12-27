@@ -1,3 +1,5 @@
+#include <iostream>
+
 #include <vector>
 
 auto slice(const std::vector<int>& v , const size_t begin, const size_t end){
@@ -61,7 +63,13 @@ int main(){
 
     std::vector<int> a = {5,7,6,2,1,5,6,3,21,1,2,3,5,9};
 
-    break_and_merge(a);
+    a = break_and_merge(a);
+
+    for (size_t i = 0; i < a.size(); i++)
+    {
+        std::cout<<a[i]<<' ';
+    }
+    
     
     return 0;
 }
