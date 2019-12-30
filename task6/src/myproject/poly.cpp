@@ -100,12 +100,14 @@ int main(){
     polynomial<std::complex<double>> zp = {z1,z2,z3,z4,z5};
     polynomial<float> p = {1,2,3,4,0.5};
 
+    std::cout<<"Before shur:\n";
     zp.print();
     p.print();
 
     zp = shur(zp);
     p = shur(p);
 
+    std::cout<<"After shur:\n";
     zp.print();
     p.print();
 

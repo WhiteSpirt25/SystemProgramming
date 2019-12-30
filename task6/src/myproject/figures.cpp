@@ -24,17 +24,26 @@ public:
         return _width;
     }
 };
-template <typename T>
+
 class trait{
+public:
+    template <typename T>
     static int size(const circle<T>& obj){
-        return sizeof(T);
+        return sizeof(circle<T>);
     }
+    template <typename T>
     static int size(const rect<T>& obj){
-        return 2*sizeof(T);
+        return sizeof(rect<T>);
     }
 };
 int main(){
 
+    circle<double> c(10);
+
+    rect<float> r(20,10);
+
+    std::cout<<"Size of circle: "<<trait::size(c)<<'\n';
+    std::cout<<"Size of rectangle: "<<trait::size(r)<<'\n';
 
 
     return 0;
