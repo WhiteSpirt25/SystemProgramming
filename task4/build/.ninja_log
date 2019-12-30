@@ -1,0 +1,15 @@
+# ninja log v5
+72	1637	1573671475	src/tests/a4ccf2d@@tests@exe/gtest_main.cc.o	5fd85581a26e1075
+71	5808	1573671479	src/tests/a4ccf2d@@tests@exe/gtest-all.cc.o	f8af14fd4fd648b7
+146	6066	1573672106	src/tests/a4ccf2d@@tests@exe/task_test.cpp.o	22e7dacecb2731da
+6066	7453	1573672107	src/tests/tests	ac9b6b6fb598cc50
+2	11415	0	meson-test	5a22b44b719d3de9
+1	4480	1573672850	src/tests/a4ccf2d@@tests@exe/task_test.cpp.o	22e7dacecb2731da
+4480	5084	1573672851	src/tests/tests	ac9b6b6fb598cc50
+1	2418	0	meson-test	5a22b44b719d3de9
+502	6983	1573674832	src/tests/a4ccf2d@@tests@exe/task_test.cpp.o	22e7dacecb2731da
+6983	8000	1573674833	src/tests/tests	ac9b6b6fb598cc50
+2	5049	0	meson-test	5a22b44b719d3de9
+2	2732	1573805733	src/tests/a4ccf2d@@tests@exe/task_test.cpp.o	22e7dacecb2731da
+2732	3355	1573805734	src/tests/tests	ac9b6b6fb598cc50
+3355	3762	0	meson-test	5a22b44b719d3de9

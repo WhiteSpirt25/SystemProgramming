@@ -1,8 +1,8 @@
 gtest =dependency('gtest', main:true)
 test(
-    'task3',
+    'task2',
     executable(
         'tests',
-        sources: ['task_test.cpp'],
+        sources: ['message_test.cpp'],
         include_directories: src,
         dependencies: [gtest]))

@@ -1,42 +1,16 @@
-Build started at 2019-11-13T21:57:41.761317
+Build started at 2019-10-31T22:03:26.781360
 Main binary: /usr/bin/python3
-Build Options: 
+Build Options: -Dbackend=ninja
 Python system: Linux
 The Meson build system
 Version: 0.52.0
-Source dir: /home/alexander/system_prog/task3
-Build dir: /home/alexander/system_prog/task3/build
+Source dir: /home/alexander/system_prog/task2
+Build dir: /home/alexander/system_prog/task2/build
 Build type: native build
 Project name: myproject
 Project version: 0.1.0
-No CXXFLAGS in the environment, not changing global flags.
-No LDFLAGS in the environment, not changing global flags.
-No CPPFLAGS in the environment, not changing global flags.
-Sanity testing C++ compiler: c++
-Is cross compiler: False.
-Sanity check compiler command line: c++ /home/alexander/system_prog/task3/build/meson-private/sanitycheckcpp.cc -o /home/alexander/system_prog/task3/build/meson-private/sanitycheckcpp.exe -pipe -D_FILE_OFFSET_BITS=64
-Sanity check compile stdout:
-
------
-Sanity check compile stderr:
-
------
-Running test binary command: /home/alexander/system_prog/task3/build/meson-private/sanitycheckcpp.exe
 C++ compiler for the build machine: c++ (gcc 7.4.0 "c++ (Ubuntu 7.4.0-1ubuntu1~18.04.1) 7.4.0")
 C++ linker for the build machine: GNU ld.bfd 2.30
-No CXXFLAGS in the environment, not changing global flags.
-No LDFLAGS in the environment, not changing global flags.
-No CPPFLAGS in the environment, not changing global flags.
-Sanity testing C++ compiler: c++
-Is cross compiler: False.
-Sanity check compiler command line: c++ /home/alexander/system_prog/task3/build/meson-private/sanitycheckcpp.cc -o /home/alexander/system_prog/task3/build/meson-private/sanitycheckcpp.exe -pipe -D_FILE_OFFSET_BITS=64
-Sanity check compile stdout:
-
------
-Sanity check compile stderr:
-
------
-Running test binary command: /home/alexander/system_prog/task3/build/meson-private/sanitycheckcpp.exe
 C++ compiler for the host machine: c++ (gcc 7.4.0 "c++ (Ubuntu 7.4.0-1ubuntu1~18.04.1) 7.4.0")
 C++ linker for the host machine: GNU ld.bfd 2.30
 Build machine cpu family: x86_64
@@ -45,50 +19,24 @@ Host machine cpu family: x86_64
 Host machine cpu: x86_64
 Target machine cpu family: x86_64
 Target machine cpu: x86_64
-Pkg-config binary for MachineChoice.HOST is not cached.
-Pkg-config binary missing from cross or native file, or env var undefined.
-Trying a default pkg-config fallback at pkg-config
-Trying pkg-config binary pkg-config for machine MachineChoice.HOST at [None]
-Did not find pkg-config by name 'pkg-config'
-Found Pkg-config: NO
-Pkg-config binary for machine MachineChoice.HOST not found. Giving up.
+Dependency gtest found: YES (cached)
+Adding test "task2"
+Build targets in project: 1
+Found ninja-1.8.2 at /usr/bin/ninja
 Running compile:
-Working directory:  /home/alexander/system_prog/task3/build/meson-private/tmp_t5xm3q9
-Command line:  c++ /home/alexander/system_prog/task3/build/meson-private/tmp_t5xm3q9/testfile.cpp -o /home/alexander/system_prog/task3/build/meson-private/tmp_t5xm3q9/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -fpermissive -Wl,--start-group -lgtest -Wl,--end-group -Wl,--allow-shlib-undefined 
+Working directory:  /tmp/tmp0gf8bilw
+Command line:  c++ /tmp/tmp0gf8bilw/testfile.cpp -o /tmp/tmp0gf8bilw/output.obj -pipe -D_FILE_OFFSET_BITS=64 -c -std=c++11 
 
 Code:
- int main() { return 0; }
-Compiler stdout:
- 
-Compiler stderr:
- /usr/bin/ld: cannot find -lgtest
-collect2: error: ld returned 1 exit status
-
-Running compile:
-Working directory:  /home/alexander/system_prog/task3/build/meson-private/tmpc51nqj0n
-Command line:  c++ /home/alexander/system_prog/task3/build/meson-private/tmpc51nqj0n/testfile.cpp -o /home/alexander/system_prog/task3/build/meson-private/tmpc51nqj0n/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -fpermissive 
-
-Code:
- #include<stdio.h>
-        
-        int main() {
-            printf("%ld\n", (long)(sizeof(void *)));
-            return 0;
-        };
+ int i = static_cast<int>(0);
 Compiler stdout:
  
 Compiler stderr:
  
-Program stdout:
-
-8
-
-Program stderr:
-
-
+Compiler accepts -std=c++11: YES
 Running compile:
-Working directory:  /home/alexander/system_prog/task3/build/meson-private/tmp8jm0lpdl
-Command line:  c++ /home/alexander/system_prog/task3/build/meson-private/tmp8jm0lpdl/testfile.cpp -o /home/alexander/system_prog/task3/build/meson-private/tmp8jm0lpdl/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -fpermissive --print-search-dirs 
+Working directory:  /home/alexander/system_prog/task2/build/meson-private/tmpk4_i5sko
+Command line:  c++ /home/alexander/system_prog/task2/build/meson-private/tmpk4_i5sko/testfile.cpp -o /home/alexander/system_prog/task2/build/meson-private/tmpk4_i5sko/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -fpermissive --print-search-dirs 
 
 Code:
  
@@ -99,30 +47,3 @@ libraries: =/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../
 
 Compiler stderr:
  
-Running compile:
-Working directory:  /home/alexander/system_prog/task3/build/meson-private/tmp38b6_2f0
-Command line:  c++ /home/alexander/system_prog/task3/build/meson-private/tmp38b6_2f0/testfile.cpp -o /home/alexander/system_prog/task3/build/meson-private/tmp38b6_2f0/output.exe -pipe -D_FILE_OFFSET_BITS=64 -O0 -fpermissive -Wl,--start-group -lgtest_main -Wl,--end-group -Wl,--allow-shlib-undefined 
-
-Code:
- int main() { return 0; }
-Compiler stdout:
- 
-Compiler stderr:
- /usr/bin/ld: cannot find -lgtest_main
-collect2: error: ld returned 1 exit status
-
-Run-time dependency GTest found: YES (building self)
-Adding test "task3"
-Build targets in project: 1
-Found ninja-1.8.2 at /usr/bin/ninja
-Running compile:
-Working directory:  /tmp/tmpm0bhsn0b
-Command line:  c++ /tmp/tmpm0bhsn0b/testfile.cpp -o /tmp/tmpm0bhsn0b/output.obj -pipe -D_FILE_OFFSET_BITS=64 -c -std=c++11 
-
-Code:
- int i = static_cast<int>(0);
-Compiler stdout:
- 
-Compiler stderr:
- 
-Compiler accepts -std=c++11: YES

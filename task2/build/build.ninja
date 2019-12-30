@@ -26,7 +26,7 @@ rule CUSTOM_COMMAND
  restat = 1
 
 rule REGENERATE_BUILD
- command = /home/alexander/.local/bin/meson --internal regenerate /home/alexander/system_prog/task2 /home/alexander/system_prog/task2/build --backend ninja
+ command = /home/alexander/.local/bin/meson --internal regenerate /home/alexander/system_prog/task1 /home/alexander/system_prog/task1/build --backend ninja
  description = Regenerating build files.
  generator = 1
 
@@ -36,20 +36,12 @@ build PHONY: phony
 
 # Build rules for targets
 
-build src/tests/a4ccf2d@@tests@exe/message_test.cpp.o: cpp_COMPILER ../src/tests/message_test.cpp
- DEPFILE = src/tests/a4ccf2d@@tests@exe/message_test.cpp.o.d
- ARGS = -Isrc/tests/a4ccf2d@@tests@exe -Isrc/tests -I../src/tests -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread
+build tests/59830eb@@shuffle_test@exe/shuffle_test.cpp.o: cpp_COMPILER ../tests/shuffle_test.cpp
+ DEPFILE = tests/59830eb@@shuffle_test@exe/shuffle_test.cpp.o.d
+ ARGS = -Itests/59830eb@@shuffle_test@exe -Itests -I../tests -fdiagnostics-color=always -fsanitize=address -fno-omit-frame-pointer -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g
 
-build src/tests/a4ccf2d@@tests@exe/gtest-all.cc.o: cpp_COMPILER /usr/src/gtest/src/gtest-all.cc
- DEPFILE = src/tests/a4ccf2d@@tests@exe/gtest-all.cc.o.d
- ARGS = -Isrc/tests/a4ccf2d@@tests@exe -Isrc/tests -I../src/tests -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread
-
-build src/tests/a4ccf2d@@tests@exe/gtest_main.cc.o: cpp_COMPILER /usr/src/gtest/src/gtest_main.cc
- DEPFILE = src/tests/a4ccf2d@@tests@exe/gtest_main.cc.o.d
- ARGS = -Isrc/tests/a4ccf2d@@tests@exe -Isrc/tests -I../src/tests -Isrc -I../src -I/usr/src/gtest -I/usr/src/gtest/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++11 -g -pthread
-
-build src/tests/tests: cpp_LINKER src/tests/a4ccf2d@@tests@exe/message_test.cpp.o src/tests/a4ccf2d@@tests@exe/gtest-all.cc.o src/tests/a4ccf2d@@tests@exe/gtest_main.cc.o
- LINK_ARGS = -Wl,--as-needed -Wl,--no-undefined -pthread
+build tests/shuffle_test: cpp_LINKER tests/59830eb@@shuffle_test@exe/shuffle_test.cpp.o
+ LINK_ARGS = -fsanitize=address -Wl,--as-needed -Wl,--no-undefined
 
 # Test rules
 
@@ -91,7 +83,7 @@ build meson-uninstall: CUSTOM_COMMAND PHONY
 
 build uninstall: phony meson-uninstall
 
-build all: phony src/tests/tests
+build all: phony tests/shuffle_test
 
 build clean: phony meson-clean
 
@@ -99,13 +91,13 @@ build meson-clean: CUSTOM_COMMAND PHONY
  COMMAND = /usr/bin/ninja -t clean
  description = Cleaning.
 
-build build.ninja: REGENERATE_BUILD ../meson.build ../src/meson.build ../src/tests/meson.build meson-private/coredata.dat
+build build.ninja: REGENERATE_BUILD ../meson.build ../tests/meson.build meson-private/coredata.dat
  pool = console
 
 build reconfigure: REGENERATE_BUILD PHONY
  pool = console
 
-build ../meson.build ../src/meson.build ../src/tests/meson.build meson-private/coredata.dat: phony 
+build ../meson.build ../tests/meson.build meson-private/coredata.dat: phony 
 
 default all
 

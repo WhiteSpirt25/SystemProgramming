@@ -6,4 +6,4 @@ project(
     default_options: ['cpp_std=c++11']#используемый стандарт C++
     )
     #src =include_directories('.')
-    subdir('src')
+    subdir('tests')
