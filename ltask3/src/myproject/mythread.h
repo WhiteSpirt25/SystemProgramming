@@ -1,5 +1,3 @@
-#include <iostream>
-
 // check 
 #include <sched.h>
 // pid
@@ -16,55 +14,62 @@
 #include <functional>
 
 #define CHECK(func) \
-    if((func) == -1) {\
+{ \
+    if ((func) == -1) { \
         throw std::system_error(errno, std::generic_category()); \
-    }
-
-void some_func(int a){
-    for (size_t i = 0; i < a; i++)
-    {
-        std::cout<<i<<"\n";
-    }
-    
+    } \
 }
 template <class Func>
-int child_main(void* arg){
+static int child_main(void* arg){
     Func* func = reinterpret_cast<Func*>(arg);;
+    int ret = 0;
+    try{
     (*func)();
-    return 0;
+    }catch(...){
+        ret = 1;
+    }
+    return ret;
 }
 class mythread{
     pid_t _pid = 0;
+    std::unique_ptr<char> _stack;
 
 public:
     mythread(){}
 
     template<class Function>
-    mythread(Function f){
+    explicit mythread(Function f){
         // выделяю память
-        size_t stack_size = 1024*10;
-        std::unique_ptr<char[]> child_stack(new char[stack_size]);
-        
+        size_t stack_size = 4096*2;
+        //std::unique_ptr<char[]> child_stack(new char[stack_size]);
+        _stack.reset(new char[stack_size]);
+
         // клонирую
         std::cout<<"Cloning..."<<"\n";
 
 
         CHECK(
-        _pid = clone(child_main<Function>, child_stack.get() + stack_size,
+        _pid = clone(child_main<Function>, _stack.get() + stack_size,
         CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND | CLONE_SYSVSEM | SIGCLD ,&f)
         );
+
+        std::cout<<"Cloned\n";
     } 
-    mythread(mythread&& other){
-        swap(other);
+    // move constructor
+    mythread(mythread&& other):_pid(other._pid),_stack(std::move(other._stack)){
+        other._pid = 0;
     }
     mythread(const mythread&) = delete;
 
     ~mythread(){
-        kill(_pid,SIGTERM);
+        std::cout<<"Called thread destructor\n";
+        if (_pid > 0) 
+            CHECK(kill(_pid,SIGTERM));
     }
 
     mythread& operator=(mythread&& thr){
         swap(thr);
+        return *this;
     }
 
     bool joinable() const noexcept{
@@ -73,7 +78,15 @@ public:
 
     void join(){
         if (joinable()){
-            CHECK(waitpid(_pid,NULL,0));
+            int wstatus;
+            CHECK(waitpid(_pid,&wstatus,0));
+            if (WIFEXITED(wstatus)){
+                _pid = 0;
+                _stack.reset();
+            }else{
+                std::cout<<"waitpid wtf\n";
+            }
+
         } else throw std::errc::invalid_argument;
     }
 
@@ -83,20 +96,8 @@ public:
 
     void swap(mythread& thr){
         std::swap(_pid,thr._pid);
+        std::swap(_stack,thr._stack);
     }
 
 
 };
-/*
-
-int main(){
-
-    int a = 5;
-
-    mythread thr(some_func);
-    thr.join();
-
-    std::cout<<"\n____________________\n";
-    return 0;
-}
-*/
