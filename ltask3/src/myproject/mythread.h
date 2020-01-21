@@ -1,3 +1,6 @@
+#include <system_error>
+#include <iostream>
+
 // check 
 #include <sched.h>
 // pid
@@ -35,7 +38,7 @@ class mythread{
     std::unique_ptr<char> _stack;
 
 public:
-    mythread(){}
+    mythread() = default;
 
     template<class Function>
     explicit mythread(Function f){
@@ -57,17 +60,19 @@ public:
     } 
     // move constructor
     mythread(mythread&& other):_pid(other._pid),_stack(std::move(other._stack)){
+        std::cout<<"move constructor\n";
         other._pid = 0;
     }
     mythread(const mythread&) = delete;
 
     ~mythread(){
-        std::cout<<"Called thread destructor\n";
         if (_pid > 0) 
+            std::cout<<"Killing thread\n";
             CHECK(kill(_pid,SIGTERM));
     }
 
     mythread& operator=(mythread&& thr){
+        std::cout<<"operator=\n";
         swap(thr);
         return *this;
     }
@@ -77,16 +82,33 @@ public:
     }
 
     void join(){
+        std::cout<<"Join is called\n";
         if (joinable()){
+
+            /*
+            // реализация через waitpid
             int wstatus;
             CHECK(waitpid(_pid,&wstatus,0));
             if (WIFEXITED(wstatus)){
                 _pid = 0;
                 _stack.reset();
             }else{
-                std::cout<<"waitpid wtf\n";
+                std::cout<<"waitpid broke\n";
             }
+            */
+            
+            // через waitid
+            siginfo_t wstatus;
+            CHECK(waitid(P_PID,this->_pid,&wstatus,WEXITED));
 
+
+            if (wstatus.si_code == CLD_EXITED){
+                _pid = 0;
+                _stack.reset();
+            }else{
+                std::cout<<"wait broke\n";
+            }
+            
         } else throw std::errc::invalid_argument;
     }
 
@@ -95,6 +117,7 @@ public:
     }
 
     void swap(mythread& thr){
+        std::cout<<"swap\n";
         std::swap(_pid,thr._pid);
         std::swap(_stack,thr._stack);
     }

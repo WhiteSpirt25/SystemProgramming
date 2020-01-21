@@ -82,7 +82,7 @@ auto my_merge_sort(std::vector<int> v){
     std::vector<mythread> threads;
     std::vector<int> ans;
     std::mutex m;
-    
+    /*
     // every stream takes part of vector
     for (size_t i = 0; i < cores -1; i++)
     {
@@ -105,7 +105,35 @@ auto my_merge_sort(std::vector<int> v){
     {
         threads[i].join();
     }
+    */
+
+    mythread thread1(
+           [&m,&ans,&v,part_size](){
+            thread_merge(std::ref(m), std::ref(ans), slice(v,part_size * 0,part_size * (0+1)));
+            return 0;
+           });
+    mythread thread2(
+           [&m,&ans,&v,part_size](){
+            thread_merge(std::ref(m), std::ref(ans), slice(v,part_size * 1,part_size * (1+1)));
+            return 0;
+           });
+    mythread thread3(
+           [&m,&ans,&v,part_size](){
+            thread_merge(std::ref(m), std::ref(ans), slice(v,part_size * 2,part_size * (2+1)));
+            return 0;
+           });
+    mythread thread4(
+           [&m,&ans,&v,part_size](){
+            thread_merge(std::ref(m), std::ref(ans), slice(v,part_size * 3,v.size()));
+            return 0;
+           });
     
+    thread1.join();
+    thread2.join();
+    thread3.join();
+    thread4.join();
+
+    std::cout<<"Returning answer\n";
     return ans;
 
 }
@@ -119,6 +147,18 @@ void print_vec(const std::vector<int>& vec){
 }
 int main(){
     
+
+    mythread test([](){
+       /*
+        std::vector<int> test_v;
+        test_v.resize(30);
+        std::generate(test_v.begin(),test_v.end(),RandomNumber);
+        break_and_merge(test_v);
+        */
+        return 0;
+    });
+    test.join();
+    return 0;
     /*
     // testing my thread with simple functions
     int a = 125;
@@ -142,7 +182,7 @@ int main(){
     std::vector<std::chrono::duration<double>> time;
     std::vector<std::chrono::duration<double>> time1;
 
-    const int N = 2;
+    const int N = 5;
     const int step_size = 100;
 
     for (size_t i = 1; i < N; i++)
