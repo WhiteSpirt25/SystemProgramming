@@ -107,33 +107,31 @@ auto my_merge_sort(std::vector<int> v){
     }
     */
 
-    mythread thread1(
-           [&m,&ans,&v,part_size](){
+    auto lambda1 = [&m,&ans,&v,part_size](){
             thread_merge(std::ref(m), std::ref(ans), slice(v,part_size * 0,part_size * (0+1)));
             return 0;
-           });
-    mythread thread2(
-           [&m,&ans,&v,part_size](){
+           };
+    mythread thread1(lambda1);
+    thread1.join();
+    auto lambda2 = [&m,&ans,&v,part_size](){
             thread_merge(std::ref(m), std::ref(ans), slice(v,part_size * 1,part_size * (1+1)));
             return 0;
-           });
-    mythread thread3(
-           [&m,&ans,&v,part_size](){
+           };
+    mythread thread2(lambda2);
+    thread2.join();
+    auto lambda3 = [&m,&ans,&v,part_size](){
             thread_merge(std::ref(m), std::ref(ans), slice(v,part_size * 2,part_size * (2+1)));
             return 0;
-           });
-    mythread thread4(
-           [&m,&ans,&v,part_size](){
+           };
+    mythread thread3(lambda3);
+    thread3.join();
+    auto lambda4 = [&m,&ans,&v,part_size](){
             thread_merge(std::ref(m), std::ref(ans), slice(v,part_size * 3,v.size()));
             return 0;
-           });
-    
-    thread1.join();
-    thread2.join();
-    thread3.join();
+           };
+    mythread thread4(lambda4);
     thread4.join();
-
-    std::cout<<"Returning answer\n";
+    
     return ans;
 
 }
@@ -145,42 +143,14 @@ void print_vec(const std::vector<int>& vec){
     }
     std::cout<<std::endl;
 }
-int test_fun(){
-   return 0; 
-}
 int main(){
     
-    
-    mythread test(test_fun);
-    test.join();
-    return 0;
-
-    
-    /*
-    // testing my thread with simple functions
-    int a = 125;
-    int b = 377;
-    std::vector<mythread> test;
-    test.emplace_back([&a](){std::cout<<++a<<" 1 thread\n";});
-    test.emplace_back([&b](){std::cout<<++b<<" 2 thread\n";});
-
-    for (size_t i = 0; i < test.size(); i++)
-    {
-        std::cout<<"Joining thread# "<<i<<'\n';
-        test[i].join();
-    }
-
-    std::cout<<a<<b<<"\n__________";
-
-    return 0;
-    */
-    /*
     std::vector<int> vec ;
     std::vector<std::chrono::duration<double>> time;
     std::vector<std::chrono::duration<double>> time1;
 
-    const int N = 5;
-    const int step_size = 100;
+    const int N = 10;
+    const int step_size = 1000;
 
     for (size_t i = 1; i < N; i++)
     {
@@ -225,7 +195,8 @@ int main(){
         std::cout<<"Size: "<<i*step_size<<" Time: "<<time[i-1].count()<<" Time with 1 thread: "<<time1[i-1].count()<<'\n';
     }
     
+    
 
     return 0;
-    */
+    
 }

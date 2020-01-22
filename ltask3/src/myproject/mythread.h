@@ -24,58 +24,45 @@
 }
 template <class Func>
 static int child_main(void* arg){
-    Func* func = reinterpret_cast<Func*>(arg);;
+    Func* func = reinterpret_cast<Func*>(arg);
     int ret = 0;
-    try{
     (*func)();
-    }catch(...){
-        ret = 1;
-    }
     return ret;
 }
 class mythread{
     pid_t _pid = 0;
-    std::unique_ptr<char> _stack;
+    std::unique_ptr<char[]> _stack;
 
 
 public:
     mythread() = default;
 
     template<class Function>
-    explicit mythread(Function f){
+    explicit mythread(Function& f){
         // выделяю память
-        size_t stack_size = 4096*2;
+        const size_t stack_size = 1024*1024;
         //std::unique_ptr<char[]> child_stack(new char[stack_size]);
         _stack.reset(new char[stack_size]);
         
-        // клонирую
-        std::cout<<"Cloning..."<<"\n";
-
-
-        CHECK(
-        _pid = clone(child_main<Function>, _stack.get() + stack_size,
-        CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND | CLONE_SYSVSEM | SIGCLD ,&f)
-        );
+        _pid = clone(child_main<Function>, _stack.get() + stack_size-1,
+        CLONE_VM | SIGCHLD  ,&f);
+        CHECK(_pid);
         
-        std::cout<<"Cloned\n";
     } 
     // move constructor
     mythread(mythread&& other):_pid(other._pid),_stack(std::move(other._stack)){
-        std::cout<<"move constructor\n";
         other._pid = 0;
     }
     mythread(const mythread&) = delete;
 
     ~mythread(){
-        std::cout<<"Destructor\n";
-        _stack.reset(nullptr);
-        if (_pid > 0) 
-            std::cout<<"Killing thread\n";
+        if (_pid > 0) {
             CHECK(kill(_pid,SIGTERM));
+        }
+        _stack.reset();
     }
 
     mythread& operator=(mythread&& thr){
-        std::cout<<"operator=\n";
         swap(thr);
         return *this;
     }
@@ -85,35 +72,23 @@ public:
     }
 
     void join(){
-        std::cout<<"Join is called\n";
         if (joinable()){
 
-            /*
+            //std::cout<<"Joining\n";
             // реализация через waitpid
             int wstatus;
             CHECK(waitpid(_pid,&wstatus,0));
+            //std::cout<<"waited\n";
             if (WIFEXITED(wstatus)){
                 _pid = 0;
+                //std::cout<<"Join:resseting\n";
                 _stack.reset();
+                //std::cout<<"Join:after reset\n";
+                
             }else{
                 std::cout<<"waitpid broke\n";
             }
-            */
             
-            // через waitid
-            siginfo_t wstatus;
-            std::cout<<"Join:wait\n";
-            CHECK(waitid(P_PID,this->_pid,&wstatus,WEXITED));
-
-            std::cout<<"Join:checking status+cleaning\n";
-            if (wstatus.si_code == CLD_EXITED){
-                std::cout<<"Join:code fine\n";
-                _pid = 0;
-                _stack.reset(nullptr);
-                std::cout<<"Join:after reset\n";
-            }else{
-                std::cout<<"wait broke\n";
-            }
             
         } else throw std::errc::invalid_argument;
     }
@@ -123,7 +98,6 @@ public:
     }
 
     void swap(mythread& thr){
-        std::cout<<"swap\n";
         std::swap(_pid,thr._pid);
         std::swap(_stack,thr._stack);
     }
