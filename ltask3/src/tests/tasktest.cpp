@@ -145,20 +145,17 @@ void print_vec(const std::vector<int>& vec){
     }
     std::cout<<std::endl;
 }
+int test_fun(){
+   return 0; 
+}
 int main(){
     
-
-    mythread test([](){
-       /*
-        std::vector<int> test_v;
-        test_v.resize(30);
-        std::generate(test_v.begin(),test_v.end(),RandomNumber);
-        break_and_merge(test_v);
-        */
-        return 0;
-    });
+    
+    mythread test(test_fun);
     test.join();
     return 0;
+
+    
     /*
     // testing my thread with simple functions
     int a = 125;
@@ -177,7 +174,7 @@ int main(){
 
     return 0;
     */
-    
+    /*
     std::vector<int> vec ;
     std::vector<std::chrono::duration<double>> time;
     std::vector<std::chrono::duration<double>> time1;
@@ -201,10 +198,7 @@ int main(){
         auto res1 = break_and_merge(vec);
         auto end1 = std::chrono::system_clock::now();
         
-        /*
-        std::cout<<"initial vector\n";
-        print_vec(vec);
-        */
+        
         std::sort(vec.begin(),vec.end());
 
         if (vec != res){
@@ -233,4 +227,5 @@ int main(){
     
 
     return 0;
+    */
 }

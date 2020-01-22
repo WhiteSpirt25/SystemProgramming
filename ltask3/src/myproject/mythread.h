@@ -37,6 +37,7 @@ class mythread{
     pid_t _pid = 0;
     std::unique_ptr<char> _stack;
 
+
 public:
     mythread() = default;
 
@@ -46,7 +47,7 @@ public:
         size_t stack_size = 4096*2;
         //std::unique_ptr<char[]> child_stack(new char[stack_size]);
         _stack.reset(new char[stack_size]);
-
+        
         // клонирую
         std::cout<<"Cloning..."<<"\n";
 
@@ -55,7 +56,7 @@ public:
         _pid = clone(child_main<Function>, _stack.get() + stack_size,
         CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND | CLONE_SYSVSEM | SIGCLD ,&f)
         );
-
+        
         std::cout<<"Cloned\n";
     } 
     // move constructor
@@ -66,6 +67,8 @@ public:
     mythread(const mythread&) = delete;
 
     ~mythread(){
+        std::cout<<"Destructor\n";
+        _stack.reset(nullptr);
         if (_pid > 0) 
             std::cout<<"Killing thread\n";
             CHECK(kill(_pid,SIGTERM));
@@ -99,12 +102,15 @@ public:
             
             // через waitid
             siginfo_t wstatus;
+            std::cout<<"Join:wait\n";
             CHECK(waitid(P_PID,this->_pid,&wstatus,WEXITED));
 
-
+            std::cout<<"Join:checking status+cleaning\n";
             if (wstatus.si_code == CLD_EXITED){
+                std::cout<<"Join:code fine\n";
                 _pid = 0;
-                _stack.reset();
+                _stack.reset(nullptr);
+                std::cout<<"Join:after reset\n";
             }else{
                 std::cout<<"wait broke\n";
             }
